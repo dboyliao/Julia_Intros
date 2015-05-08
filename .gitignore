@@ -1,2 +1,9 @@
 ## ipython ##
 .ipynb*
+Dev.ipynb
+Fract_Python.ipynb
+Fractoal_in_Julia.ipynb
+
+## Mac ##
+.DS_Store
+
