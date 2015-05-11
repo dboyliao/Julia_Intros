@@ -1,24 +1,24 @@
 ## Get port number through ENV
 port = get(ENV, "JULIA_SERVER_PORT", 8000)
 
-function mem_fib_gen()
-	cache = Dict{Int64, Int64}()
-	function fib(n::Int64)
-		if n in keys(cache)
-			return cache[n]
-		end
-		answer = n < 2 ? 1 : fib(n - 1) + fib(n -2)
-		cache[n] = answer
-		return answer
-	end
-	return fib
-end
+# function mem_fib_gen()
+# 	cache = Dict{Int64, Int64}()
+# 	function fib(n::Int64)
+# 		if n in keys(cache)
+# 			return cache[n]
+# 		end
+# 		answer = n < 2 ? 1 : fib(n - 1) + fib(n -2)
+# 		cache[n] = answer
+# 		return answer
+# 	end
+# 	return fib
+# end
 
-# using closure to block outer access to inner cache.
-fib = mem_fib_gen()
+# # using closure to block outer access to inner cache.
+# fib = mem_fib_gen()
 
 # Simple version 
-# fib(n) = n < 2 ? 1 : fib(n - 1) + fib(n - 2)
+fib(n) = n < 2 ? 1 : fib(n - 1) + fib(n - 2)
 
 ## Start a server socket
 server_socket = listen(int64(port))
