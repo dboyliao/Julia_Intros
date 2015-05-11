@@ -1,8 +1,6 @@
 ## Get port number through ENV
 port = get(ENV, "JULIA_SERVER_PORT", 8000)
 
-println("[Info] server is running at port $port....")
-
 function mem_fib_gen()
 	cache = Dict{Int64, Int64}()
 	function fib(n::Int64)
